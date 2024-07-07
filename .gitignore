@@ -23,6 +23,7 @@
 
 !world/data/
 !world/data/map*
+!world/data/scoreboard.dat
 
 !world/datapacks/
 !world/datapacks/interaction-eftylwnh.zip
