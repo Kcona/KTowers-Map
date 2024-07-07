@@ -1,2 +1,2 @@
 git reset --hard
-git clean -fdX
+git clean -fdX --exclude="!world/datapacks/*"
