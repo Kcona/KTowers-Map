@@ -5,6 +5,7 @@
 !.git/
 !.gitignore
 !.gitattributes
+!reset_repository.sh
 !README.md
 
 # Include Server
