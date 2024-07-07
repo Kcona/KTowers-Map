@@ -1,0 +1,41 @@
+# Ignore everything
+*
+
+# Include git stuff
+!.git/
+!.gitignore
+!.gitattributes
+!README.md
+
+# Include Server
+!eula.txt
+!fabric*.jar
+!start.sh
+!server.properties
+!server-icon.png
+
+# Include Mods
+!mods/
+!mods/*.jar
+
+# Include World
+!world/
+
+!world/data/
+!world/data/map*
+
+!world/datapacks/
+!world/datapacks/interaction-eftylwnh.zip
+
+!world/entities/
+!world/entities/*
+
+!world/poi/
+!world/poi/*
+
+!world/region/
+!world/region/*
+
+!world/level.dat
+!world/session.lock
+!world/uid.dat
