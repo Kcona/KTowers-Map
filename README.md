@@ -10,3 +10,7 @@
 /reload
 ```
 This will reload the server datapacks ensuring they are properly initialized.
+
+## How to do a commit
+1. Do whatever changes you want to the world
+2. Remove the PlayerScores NBT from the ``world/data/scoreboard.dat`` file
