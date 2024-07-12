@@ -1,4 +1,4 @@
-# KTowers Map
+# KTowers Map [<img src="https://discord.com/api/guilds/1198811434436538399/widget.png?style=shield" alt="Discord Shield"/>](https://discord.gg/nvR8RwQnVE)
 ---
 ---
 ---
