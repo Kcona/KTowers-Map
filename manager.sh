@@ -10,7 +10,6 @@ reset() {
     git clean -fdX --exclude="!world/datapacks/*"
 }
 
-
 up() {
 	reset
 	start

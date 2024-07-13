@@ -12,7 +12,10 @@
 ---
 ---
 # Reset the map to play again
-1. Execute the ``reset_repository.sh`` script. This will return the repository to a not played condition.
+1. Execute the ``manager.sh`` script. 
+- ``manager.sh start`` This will start the server.
+- ``manager.sh reset`` This will return the repository to a not played condition.
+- ``manager.sh up`` This will reset and then start the server.
 2. Enter the server from Minecraft, give yourself OP from the console and run this ``/reload`` command inside Minecraft. This will reload the server datapacks ensuring they are properly initialized with loaded chunks.
 ---
 ---
