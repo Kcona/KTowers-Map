@@ -13,6 +13,8 @@
 !fabric*.jar
 !server.properties
 !server-icon.png
+!mods/EasyAuth/
+!mods/EasyAuth/config.json
 
 # Include Mods
 !mods/
