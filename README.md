@@ -1,4 +1,5 @@
 # KTowers Map (OLD)
+This version is older but it may be simpler to setup in free server providers like Aternos. You may prefer this to practice and level up your skills. Good luck and have fun!
 ---
 ---
 ---
