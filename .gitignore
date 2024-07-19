@@ -10,7 +10,7 @@
 
 # Include Server
 !eula.txt
-!fabric*.jar
+!*.jar
 !server.properties
 !server-icon.png
 !mods/EasyAuth/
