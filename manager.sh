@@ -9,7 +9,7 @@ reset() {
 	cp server.properties server.properties.bak
     git reset --hard
 	mv server.properties.bak server.properties
-    git clean -fdX -n -e "!world/datapacks/*" -e "!server.properties"
+    git clean -fdX -e "!world/datapacks/*" -e "!server.properties"
 }
 
 up() {
