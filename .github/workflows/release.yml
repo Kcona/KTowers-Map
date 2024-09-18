@@ -1,0 +1,46 @@
+name: Create Release Assets
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Create the "server.zip" file
+      - name: Create "server" zip
+        run: |
+          mkdir -p release_assets
+          zip -r release_assets/server.zip mods/ world/ LICENSE README.md eula.txt server-icon.png server.jar server.properties
+
+      # Create the "world.zip" file without the parent directory
+      - name: Create "world" zip
+        run: |
+          cd world  # Navigate to the 'world' folder
+          zip -r ../release_assets/world.zip ./*  # Zip the contents of the 'world' directory without the directory itself
+
+      # Install GitHub CLI
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      # Upload the "server" asset using gh CLI
+      - name: Upload "server" asset
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" release_assets/server.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload the "world" asset using gh CLI
+      - name: Upload "world" asset
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" release_assets/world.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
