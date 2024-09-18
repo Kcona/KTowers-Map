@@ -25,24 +25,22 @@ jobs:
           cd world  # Navigate to the 'world' folder
           zip -r ../release_assets/world.zip ./*  # Zip the contents of the 'world' directory without the directory itself
 
-      # Upload the "server" asset (updated to version v2 for Node.js compatibility)
+      # Install GitHub CLI
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      # Upload the "server" asset using gh CLI
       - name: Upload "server" asset
-        uses: actions/upload-release-asset@v2  # Upgraded to v2
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: release_assets/server.zip
-          asset_name: server.zip
-          asset_content_type: application/zip
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" release_assets/server.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Upload the "world" asset (updated to version v2 for Node.js compatibility)
+      # Upload the "world" asset using gh CLI
       - name: Upload "world" asset
-        uses: actions/upload-release-asset@v2  # Upgraded to v2
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: release_assets/world.zip
-          asset_name: world.zip
-          asset_content_type: application/zip
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" release_assets/world.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
