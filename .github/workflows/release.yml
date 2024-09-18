@@ -1,0 +1,46 @@
+name: Create Release Assets
+
+on:
+  # Trigger when a new release is created
+  release:
+    types: [created]
+  # Also allows manually running the workflow from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Use Ubuntu as the runner
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Create a zip file that contains all server files and folders
+      - name: Create "server" zip
+        run: |
+          mkdir -p release_assets
+          zip -r release_assets/whole_server.zip mods/ world/ LICENSE README.md eula.txt server-icon.png server.jar server.properties
+
+      # Step 3: Create a zip file that contains only the "world" files and folders
+      - name: Create "world" zip
+        run: |
+          zip -r release_assets/world.zip world/
+
+      # Step 4: Upload the zip files as release assets
+      - name: Upload "server" asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: release_assets/whole_server.zip
+          asset_name: whole_server.zip
+          asset_content_type: application/zip
+
+      - name: Upload "world" asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: release_assets/world.zip
+          asset_name: world.zip
+          asset_content_type: application/zip
