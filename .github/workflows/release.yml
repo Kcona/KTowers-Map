@@ -26,7 +26,8 @@ jobs:
       # Step 3: Create a zip file that contains only the "world" files and folders
       - name: Create "world" zip
         run: |
-          zip -r release_assets/world.zip world/*
+          cd world  # Navigate to the 'world' folder
+          zip -r ../release_assets/world.zip ./*  # Zip the contents of the 'world' directory without the directory itself
 
       # Step to upload "whole server" zip as a release asset
       - name: Upload "server" asset
