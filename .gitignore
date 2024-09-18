@@ -5,15 +5,16 @@
 !.git/
 !.gitignore
 !.gitattributes
-!reset_repository.sh
+!manager.sh
 !README.md
 
 # Include Server
 !eula.txt
-!fabric*.jar
-!start.sh
+!*.jar
 !server.properties
 !server-icon.png
+!mods/EasyAuth/
+!mods/EasyAuth/config.json
 
 # Include Mods
 !mods/
