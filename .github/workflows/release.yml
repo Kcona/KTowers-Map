@@ -28,15 +28,18 @@ jobs:
         run: |
           zip -r release_assets/world.zip world/
 
-      # Step 4: Upload the zip files as release assets
-      - name: Upload "server" asset
+      # Step to upload "whole server" zip as a release asset
+      - name: Upload "whole server" asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: release_assets/whole_server.zip
           asset_name: whole_server.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step to upload "world" zip as a release asset
       - name: Upload "world" asset
         uses: actions/upload-release-asset@v1
         with:
@@ -44,3 +47,5 @@ jobs:
           asset_path: release_assets/world.zip
           asset_name: world.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
