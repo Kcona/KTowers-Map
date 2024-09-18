@@ -26,10 +26,10 @@ jobs:
       # Step 3: Create a zip file that contains only the "world" files and folders
       - name: Create "world" zip
         run: |
-          zip -r release_assets/world.zip world/
+          zip -r release_assets/world.zip world/*
 
       # Step to upload "whole server" zip as a release asset
-      - name: Upload "whole server" asset
+      - name: Upload "server" asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
