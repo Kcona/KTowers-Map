@@ -1,0 +1,59 @@
+﻿# Spawn point when player enters the server during waiting state (the lobbies)
+main-lobby: [0, 88, 1024]
+
+# Center of the map
+game-center: [0, 192, 1152]
+
+teams: # Define the teams
+  - spawn-lobby: [-29, 64, 992]
+    game-spawn-point: # Location bound 1, Location boud 2 (from --> to) defines the spawn area
+      - [-86, 192, 1150] # Location bound 1
+      - [-82, 198, 1154] # Location bound 2
+    basket: # Location bound 1, Location boud 2 (from --> to) defines the basket area
+      - [-85, 201, 1151] # Location bound 1
+      - [-83, 205, 1153] # Location bound 2
+
+  - spawn-lobby: [29, 64, 992]
+    game-spawn-point: # Location bound 1, Location boud 2 (from --> to) defines the spawn area
+      - [82, 192, 1150] # Location bound 1
+      - [86, 198, 1154] # Location bound 2
+    basket: # Location bound 1, Location boud 2 (from --> to) defines the basket area
+      - [83, 201, 1151] # Location bound 1
+      - [85, 205, 1153] # Location bound 2
+
+generators: # Defines the map generators
+  - [0, 205, 1138]
+  - [0, 205, 1152]
+  - [0, 205, 1166]
+
+point-visualization:
+  - type: BEACON
+    box:
+      - [-62, 107, 1035]
+      - [62, 107, 1035]
+
+arena: # Arena config
+  - type: DEATHMATCH
+    center: [0, 66, 944]
+    teams-info:
+      - waiting-room: [-36, 49, 944] # Waiting room spawn point
+        buttons: # Buttons to be a gladiator
+          - [-29, 50, 940]
+          - [-28, 50, 944]
+          - [-29, 50, 948]
+        spectator-point: [-25, 75, 944] # Spectator point
+        player-pos: # Positions of the players in the arena
+          - [-15, 65, 938]
+          - [-16, 65, 944]
+          - [-15, 65, 950]
+
+      - waiting-room: [36, 49, 944] # Waiting room spawn point
+        buttons: # Buttons to be a gladiator
+          - [29, 50, 940]
+          - [28, 50, 944]
+          - [29, 50, 948]
+        spectator-point: [25, 75, 944] # Spectator point
+        player-pos: # Positions of the players in the arena
+          - [15, 65, 938]
+          - [16, 65, 944]
+          - [15, 65, 950]

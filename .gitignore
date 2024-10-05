@@ -33,6 +33,9 @@
 !world/entities/
 !world/entities/*
 
+!world/ktowers/
+!world/ktowers/*
+
 !world/poi/
 !world/poi/*
 
